@@ -1,6 +1,7 @@
 // src/components/TaskList.js
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import './TaskList.css' // import CSS file
 
 function TaskList() {
   const [tasks, setTasks] = useState([])
@@ -17,13 +18,13 @@ function TaskList() {
   }, [])
 
   return (
-    <div>
-      <h2>Task List</h2>
-      <ul>
+    <div className="task-list-container">
+      <h2 className="task-list-title">Task List</h2>
+      <ul className="task-list">
         {tasks.map(task => (
-          <li key={task.id}>
-            <h3>{task.title}</h3>
-            <p>{task.description}</p>
+          <li key={task.id} className="task-item">
+            <h3 className="task-name">{task.name}</h3>
+            <p className="task-description">{task.description}</p>
           </li>
         ))}
       </ul>
